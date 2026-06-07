@@ -1,0 +1,58 @@
+[gd_scene format=3 uid="uid://do7t0377s0b3f"]
+
+[ext_resource type="PackedScene" uid="uid://rhv37x1lpoy5" path="res://burg.glb" id="1_0xm2m"]
+[ext_resource type="PackedScene" uid="uid://cvql8tbkusvj4" path="res://burg1.blend" id="2_h2yge"]
+[ext_resource type="Script" uid="uid://cjjqg55a1jjhw" path="res://burg1.gd" id="3_h2yge"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_0xm2m"]
+sky_horizon_color = Color(0.94434744, 1.0193007, 0.9815926, 1)
+ground_bottom_color = Color(0.3135589, 0.544372, 0.29753953, 1)
+ground_horizon_color = Color(0.94434744, 1.0193007, 0.9815926, 1)
+
+[sub_resource type="Sky" id="Sky_h2yge"]
+sky_material = SubResource("ProceduralSkyMaterial_0xm2m")
+
+[sub_resource type="Environment" id="Environment_1bvp3"]
+background_mode = 2
+sky = SubResource("Sky_h2yge")
+tonemap_mode = 2
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_1bvp3"]
+
+[node name="Main" type="Node3D" unique_id=1088180642]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1886183764]
+environment = SubResource("Environment_1bvp3")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1820590268]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1611789520]
+transform = Transform3D(-0.16835023, -0.36344635, 0.91627777, -0.065677635, 0.9316151, 0.35746288, -0.98353684, 0, -0.18070793, 5.9993935, 1.8195939, 1.1547074)
+
+[node name="Floor" type="CSGBox3D" parent="." unique_id=173749164]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, 0)
+size = Vector3(20, 0.5, 20)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1783478962]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 2.0646634)
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGBox3D" unique_id=148904175]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.51912594, 0)
+operation = 2
+radial_segments = 24
+rings = 12
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1111850625]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3185412, 0)
+mesh = SubResource("CapsuleMesh_1bvp3")
+
+[node name="burg" parent="." unique_id=1629925462 instance=ExtResource("1_0xm2m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.49106932, 0, 4.1323266)
+
+[node name="burg1" parent="." unique_id=48537168 instance=ExtResource("2_h2yge")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.3922567, 4.7683716e-07, 2.4271383)
+script = ExtResource("3_h2yge")
+
+[editable path="burg1"]
