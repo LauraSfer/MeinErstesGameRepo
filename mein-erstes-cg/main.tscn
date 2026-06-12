@@ -27,6 +27,7 @@ shadow_enabled = true
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1611789520]
 transform = Transform3D(-0.16835023, -0.36344635, 0.91627777, -0.065677635, 0.9316151, 0.35746288, -0.98353684, 0, -0.18070793, 5.9993935, 1.8195939, 1.1547074)
+visible = false
 
 [node name="Floor" type="CSGBox3D" parent="." unique_id=173749164]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, 0)
